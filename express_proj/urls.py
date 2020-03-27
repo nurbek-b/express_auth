@@ -18,13 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from rest_framework_swagger.views import get_swagger_view
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 schema_view = get_swagger_view(title="EXPRESS API")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('express_auth.urls'), name='jwtauth'),
-    path('auth/', include('rest_framework.urls')),
     path('api/docs/', schema_view),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

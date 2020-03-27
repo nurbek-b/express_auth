@@ -52,7 +52,6 @@ class User(AbstractUser):
     password2 = models.CharField(max_length=255)
     registered_at = models.DateTimeField(auto_now_add=True)
     phone = PhoneNumberField()
-    offer_confirmed = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['password', 'password2']
